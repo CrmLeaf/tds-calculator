@@ -1,0 +1,14 @@
+parameters:
+    level: 8
+    paths:
+        - src
+    treatPhpDocTypesAsCertain: false
+
+# `paths` already limits what is analysed, so vendor needs no exclusion - and it
+# must not be excluded, because PHPStan scans it to discover the symbols this
+# package depends on. Excluding it under analyseAndScan turns every dependency
+# into an unknown class.
+#
+# Tests are outside `paths`, matching the monorepo. At level 8 a test suite
+# reports mostly framework nullables and redundant guards, none of which is a
+# defect; PHPUnit exercises the tests, this analyses the code that ships.

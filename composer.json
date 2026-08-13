@@ -1,0 +1,75 @@
+{
+    "name": "crmleaf/tds-calculator",
+    "description": "Monthly TDS under the new or old regime using FY 2025-26 slabs.",
+    "keywords": ["tds", "income-tax", "new-regime", "old-regime", "india", "fy-2025-26"],
+    "homepage": "https://www.indpayroll.com/free-tools/tds-calculator",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "CRMLeaf",
+            "email": "opensource@crmleaf.app",
+            "homepage": "https://www.crmleaf.app"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/crmleaf/tds-calculator/issues",
+        "source": "https://github.com/crmleaf/tds-calculator"
+    },
+    "require": {
+        "php": "^8.2",
+        "crmleaf/payroll-core": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.58",
+        "orchestra/testbench": "^8.0 || ^9.0 || ^10.0",
+        "phpstan/phpstan": "^1.11 || ^2.0",
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "suggest": {
+        "crmleaf/laravel-payroll": "Installs the whole CRMLeaf payroll suite behind one config file, one Blade namespace and one optional JSON API.",
+        "illuminate/support": "Only needed for the Laravel service provider, routes and Blade component. The calculator itself is framework-agnostic."
+    },
+    "autoload": {
+        "psr-4": {
+            "Crmleaf\\Payroll\\Tools\\TdsCalculator\\": "src/",
+            "Crmleaf\\Payroll\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Crmleaf\\Payroll\\Tools\\TdsCalculator\\Tests\\": "tests/",
+            "Crmleaf\\Payroll\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Crmleaf\\Payroll\\Tools\\TdsCalculator\\TdsCalculatorServiceProvider"
+            ]
+        },
+        "crmleaf": {
+            "tool": "tds-calculator",
+            "category": "payroll-calculators",
+            "backend": "none",
+            "calculator": "Crmleaf\\Payroll\\Calculators\\TdsCalculator",
+            "generated-from": "stubs/tool/composer.json.stub via bin/generate-tools.php"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": "php-cs-fixer fix --dry-run --diff",
+        "lint:fix": "php-cs-fixer fix",
+        "analyse": "phpstan analyse",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
