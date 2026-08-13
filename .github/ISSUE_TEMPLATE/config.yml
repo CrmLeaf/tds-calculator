@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/crmleaf/tds-calculator/security/advisories/new
+    about: Report privately. Please do not open a public issue.
+  - name: Wrong rate, slab or due date
+    url: https://github.com/crmleaf/payroll-core/issues/new/choose
+    about: Rates are dated tables shared by every tool, so they are changed in payroll-core.
+  - name: The other CRMLeaf payroll tools
+    url: https://github.com/crmleaf
+    about: Payslips, invoices, gratuity and the rest each have their own repository.
